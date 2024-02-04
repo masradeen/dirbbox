@@ -1,3 +1,4 @@
+import 'package:dirbbox/pages/profile_page.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -90,7 +91,9 @@ class LoginPage extends StatelessWidget {
                     ),
                     Expanded(
                       child: ElevatedButton(
-                        onPressed: () {}, 
+                        onPressed: () {
+                          Navigator.of(context).pushNamed(ProfilePage.nameRoute);
+                        }, 
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [

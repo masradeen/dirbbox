@@ -11,7 +11,9 @@ class ProfilePage extends StatelessWidget {
         elevation: 0,
         backgroundColor: Color(0xFFF1F1F1),
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
           icon: Icon(
             Icons.arrow_back_ios,
             color: Color(0xFF222158),
