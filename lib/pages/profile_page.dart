@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -140,17 +138,127 @@ class ProfilePage extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                  width: MediaQuery.of(context).size.width * 0.4,
-                  height: 120,
-                  color: Colors.amber,
+                CardFolder(
+                  image: Image.asset("assets/icons/folder-415EB6.png"),
+                  title: "Mobile Apps",
+                  date: "December 20.2020",
+                  color: Color(0xFF415EB6),
                 ),
-                Container(
-                  width: MediaQuery.of(context).size.width * 0.4,
-                  height: 120,
-                  color: Colors.blue,
+                CardFolder(
+                  image: Image.asset("assets/icons/folder-FFB110.png"),
+                  title: "SVG Icons",
+                  date: "December 14.2020",
+                  color: Color(0xFFFFB110),
                 ),
               ],
+            ),
+          ),
+          SizedBox(height: 20,),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                CardFolder(
+                  image: Image.asset("assets/icons/folder-AC4141.png"),
+                  title: "Prototypes",
+                  date: "November 22.2020",
+                  color: Color(0xFFAC4141),
+                ),
+                CardFolder(
+                  image: Image.asset("assets/icons/folder-23B0B0.png"),
+                  title: "Avatars",
+                  date: "November 10.2020",
+                  color: Color(0xFF23B0B0),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: 10,),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Recent Uploads",
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Image.asset("assets/icons/sort.png"),
+              ],
+            ),
+          ),
+          SizedBox(height: 5,),
+          ListTile(
+            leading: Container(
+              width: 50,
+              height: 50,
+              child: Image.asset(
+                "assets/icons/msword.png",
+                fit: BoxFit.cover,
+              ),
+            ),
+            title: Text(
+              "Projects.docx",
+            ),
+            subtitle: Text(
+              "November 22.2020",
+            ),
+            trailing: Text(
+              "300kb",
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class CardFolder extends StatelessWidget {
+  CardFolder({
+    Key? key,
+    required this.title,
+    required this.date,
+    required this.color,
+    required this.image,
+  }) : super(key: key);
+
+  final String title;
+  final String date;
+  final Color color;
+  final Image image;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(15),
+      width: MediaQuery.of(context).size.width * 0.4,
+      height: 120,
+      decoration: BoxDecoration(
+        color: color.withOpacity(0.05),
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          image,
+          SizedBox(height: 15,),
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          SizedBox(height: 2,),
+          Text(
+            date,
+            style: TextStyle(
+              fontSize: 12,
             ),
           ),
         ],
